@@ -27,7 +27,7 @@ namespace ASPNetRefresher.Migrations
 
             Console.WriteLine(_filePath);
 
-            var csvParserOptions = new CsvParserOptions(false, ',');
+            var csvParserOptions = new CsvParserOptions(true, ',');
             var csvMapper = new CsvTitaniteMapping();
             var tinyCsvParser = new CsvParser<Titanite>(csvParserOptions, csvMapper);
 

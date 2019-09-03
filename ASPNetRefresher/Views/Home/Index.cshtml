@@ -9,8 +9,32 @@
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
 </div>
 
+<div class="clearfix">
+    <br />
+</div>
 
-@foreach (var m in Model)
-{
-    <li>@m.mineral</li>
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Sample Name</th>
+            <th scope="col">Tectonic Setting</th>
+            <th scope="col">Latitude Max</th>
+            <th scope="col">Longitude Max</th>
+            <th scope="col">Rock Name</th>
+            <th scope="col">Mineral</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+        <tr>
+            <td>@m.sample_name</td>
+            <td>@m.tectonic_setting</td>
+            <td>@m.lat_max</td>
+            <td>@m.long_max</td>
+            <td>@m.rock_name</td>
+            <td>@m.mineral</td>
+        </tr>
+        }
+        </tbody>
+</table>

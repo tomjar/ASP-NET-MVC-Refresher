@@ -16,9 +16,14 @@ namespace ASPNetRefresher.Controllers
                 var data = ctx.Titanites
                     .Select(t => new MineralViewModel()
                     {
-                        mineral = t.mineral
+                        lat_max = t.latitude_max,
+                        long_max = t.longitude_max,
+                        rock_name = t.rock_name,
+                        sample_name = t.sample_name,
+                        mineral = t.mineral,
+                        tectonic_setting = t.tectonic_setting
                     })
-                    .Take(100)
+                    .Take(250)
                     .ToList();
 
                 return View(data);
