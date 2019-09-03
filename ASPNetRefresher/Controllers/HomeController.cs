@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ASPNetRefresher.Models;
 
 namespace ASPNetRefresher.Controllers
 {
@@ -10,7 +11,18 @@ namespace ASPNetRefresher.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            using (var ctx = new ASPNetRefresherDbContext())
+            {
+                var data = ctx.Titanites
+                    .Select(t => new MineralViewModel()
+                    {
+                        mineral = t.mineral
+                    })
+                    .Take(100)
+                    .ToList();
+
+                return View(data);
+            }
         }
 
         public ActionResult About()
